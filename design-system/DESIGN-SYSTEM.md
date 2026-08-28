@@ -54,7 +54,7 @@ Importe `harmonyca-performance-design-tokens.json` e gere variáveis no seu form
 ## Fundamentos
 
 ### Cores institucionais (base — não inventar fora disto)
-`#7E63C9` violeta · `#3BA7E3` azul céu · `#D96155` coral (os três do gradiente do medidor) · `#16193C` navy (tinta do logo) · `#FFE4A4` amarelo · `#FFB1BD` vermelho · `#FFCA9B` amarelado · branco e preto.
+`#7E63C9` violeta · `#3BA7E3` azul céu · `#D96155` coral (os três do gradiente do medidor) · `#16193C` navy (tinta do logo) · `#FFE4A4` amarelo · `#FFB1BD` vermelho · `#FFCA9B` amarelado · gelo `#F5FAFC` (do arquivo do logo; o escuro da marca é o navy).
 
 ### Tema
 - **Dark é o padrão.** Light ativa com `data-theme="light"` no `<html>`; sem atributo, segue `prefers-color-scheme`.

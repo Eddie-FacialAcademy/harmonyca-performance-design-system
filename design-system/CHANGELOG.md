@@ -14,6 +14,12 @@ versionamento segue [SemVer](https://semver.org/lang/pt-BR/):
 
 _Nada pendente no momento._
 
+## [1.0.2] — 2026-08-28
+### Corrigido
+- Cor de marca branca alinhada ao arquivo do logo: gelo `#F5FAFC` no lugar do
+  `#FFFFFF` absoluto; o swatch de preto absoluto saiu (o escuro da marca é o
+  navy `#16193C`).
+
 ## [1.0.1] — 2026-08-28
 ### Alterado
 - Menu "Design systems" agora inclui Expert em Lábios 2026.
