@@ -14,6 +14,13 @@ versionamento segue [SemVer](https://semver.org/lang/pt-BR/):
 
 _Nada pendente no momento._
 
+## [1.0.1] — 2026-08-28
+### Alterado
+- Menu "Design systems" agora inclui Expert em Lábios 2026.
+### Corrigido
+- Galeria de gradientes retintada por completo na paleta da marca; o espectro
+  agora varre do azul céu ao coral, como o medidor do logo.
+
 ## [1.0.0] — 2026-08-28
 
 Primeira versão do HArmonyCa Performance, derivada do molde Facial Academy.
