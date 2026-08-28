@@ -1,0 +1,249 @@
+{
+  "meta": {
+    "brand": "harmonyca-performance",
+    "lang": "pt-BR",
+    "version": "1.0.0"
+  },
+  "sections": {
+    "hero": {
+      "h1": "Pare de construir no escuro.",
+      "body": "O Design System do **HArmonyCa Performance**: tokens, tipografia Silka, componentes e acessibilidade prontos para você montar telas com consistência e parar de improvisar a cada tela nova. A decisão fica no token, não no achismo."
+    },
+    "marca": {
+      "note": "A marca do HArmonyCa Performance no digital: logo, assinatura e uso correto sobre fundo claro e escuro. Mantém leitura e contraste nos dois temas."
+    },
+    "cores": {
+      "note": "Paleta extraída do medidor do logo e seus derivados em tokens de tema, claro e escuro. O componente consome token, nunca cor fixa."
+    },
+    "gradientes": {
+      "note": "Gradientes da marca em malhas (mesh) e lineares. Sem cônico, sem blob, sem halo."
+    },
+    "tipografia": {
+      "note": "Silka em escala responsiva por breakpoint. Corpo com no mínimo 16px no mobile para evitar o zoom no iOS."
+    },
+    "icones": {
+      "note": "Biblioteca Phosphor, peso Thin, traço de 1pt, herdando a cor por currentColor. O ícone nunca substitui o rótulo."
+    },
+    "botoes": {
+      "note": "Variantes e tamanhos com altura mínima de 44px e raio pill. O rótulo sempre diz a ação (Salvar plano, não Enviar)."
+    },
+    "feedback": {
+      "note": "Alertas, notificações e status nos quatro tons. Sempre ícone e texto juntos: a cor não comunica sozinha."
+    },
+    "avancados": {
+      "note": "Componentes de aplicação: tabela de dados, paleta de comandos, seletor de data e navegação. Conteúdo de exemplo do domínio do curso."
+    },
+    "acessibilidade": {
+      "note": "Contraste WCAG AA, foco visível, alvo de toque de 44px e respeito a movimento reduzido. A mensagem de erro diz o que houve e como resolver."
+    },
+    "fundamentos": {
+      "note": "Cores, tipografia, espaçamento e raio: a base que todo componente consome via token."
+    },
+    "principios": {
+      "note": "Consistência por token, paridade entre claro e escuro, acessibilidade por padrão. Decida uma vez, reaplique em todo lugar."
+    },
+    "tokens": {
+      "note": "Valores legíveis por máquina para tema, espaçamento, raio, elevação e movimento. O componente lê o token, não o valor solto."
+    }
+  },
+  "microcopy": {
+    "buttons": {
+      "salvar": "Salvar plano",
+      "cancelar": "Cancelar",
+      "confirmar": "Confirmar",
+      "adicionar": "Adicionar aula",
+      "remover": "Remover",
+      "editar": "Editar plano",
+      "assinar": "Fazer minha inscrição"
+    },
+    "empty_states": [
+      {
+        "context": "lista de casos vazia",
+        "title": "Nenhum caso ainda",
+        "body": "Monte o primeiro plano de aplicação da sua lista.",
+        "action": "Criar plano"
+      },
+      {
+        "context": "busca sem resultado",
+        "title": "Sem resultados",
+        "body": "Nenhuma aula corresponde a esse termo. Ajuste a busca ou limpe os filtros.",
+        "action": "Limpar filtros"
+      },
+      {
+        "context": "lista nova sem planos",
+        "title": "Nenhum plano salvo",
+        "body": "Monte o primeiro plano de aplicação e ele aparece aqui.",
+        "action": "Criar plano"
+      },
+      {
+        "context": "favoritos vazios",
+        "title": "Nada salvo ainda",
+        "body": "Toque no marcador para guardar aulas e revisar antes do atendimento.",
+        "action": "Explorar aulas"
+      }
+    ],
+    "alerts": {
+      "success": {
+        "title": "Plano salvo",
+        "body": "O caso já está na sua lista."
+      },
+      "info": {
+        "title": "Aula nova esta semana",
+        "body": "Entrou conteúdo novo no módulo de aplicação. Confira quando quiser."
+      },
+      "warning": {
+        "title": "Sessão expira em breve",
+        "body": "Salve o plano antes de continuar para não perder o que você montou."
+      },
+      "error": {
+        "title": "Falha ao salvar",
+        "body": "Não foi possível salvar agora. Verifique a conexão e tente de novo."
+      }
+    },
+    "form_validation": {
+      "required": "Campo obrigatório. Preencha para continuar.",
+      "email": "E-mail inválido. Use o formato nome@dominio.com.",
+      "senha_fraca": "Senha fraca. Use ao menos 8 caracteres, com número e letra.",
+      "enviado": "Cadastro enviado. Você recebe o acesso por e-mail.",
+      "erro_envio": "Não foi possível enviar. Verifique a conexão e tente de novo."
+    },
+    "confirm_destructive": {
+      "title": "Remover plano?",
+      "body": "Essa ação não tem volta. O plano sai da sua lista e não dá para recuperar.",
+      "confirm": "Remover",
+      "cancel": "Voltar"
+    },
+    "tooltips": [
+      "Duplica o plano para você editar sem perder o original.",
+      "Filtra as aulas por região da face e fase do tratamento.",
+      "Exporta o plano em PDF para consultar sem internet."
+    ]
+  },
+  "components": {
+    "data_table": {
+      "columns": [
+        "Aula",
+        "Módulo",
+        "Duração",
+        "Status"
+      ],
+      "rows": [
+        [
+          "O híbrido: HA e CaHA em detalhe",
+          "Produto",
+          "42 min",
+          "Publicada"
+        ],
+        [
+          "Avaliação e indicação por caso",
+          "Indicação",
+          "38 min",
+          "Rascunho"
+        ],
+        [
+          "Plano de aplicação por região",
+          "Planejamento",
+          "51 min",
+          "Publicada"
+        ],
+        [
+          "Técnica: profundidade e vetores",
+          "Aplicação",
+          "29 min",
+          "Em revisão"
+        ],
+        [
+          "Acompanhamento e retorno",
+          "Resultados",
+          "47 min",
+          "Publicada"
+        ]
+      ],
+      "empty": "Nenhuma aula por aqui ainda. Crie a primeira para o seu módulo.",
+      "caption": "Aulas do curso HArmonyCa Performance"
+    },
+    "date_picker": {
+      "label": "Data da turma ao vivo",
+      "help": "Escolha a data da turma ao vivo. As vagas são limitadas."
+    },
+    "app_nav": {
+      "page_title": "Meus módulos",
+      "user_initials": "AC",
+      "items": [
+        "Início",
+        "Módulos",
+        "Aulas",
+        "Planos",
+        "Comunidade",
+        "Conta"
+      ]
+    },
+    "command_palette": {
+      "placeholder": "Busque aulas, planos ou comandos",
+      "groups": [
+        {
+          "label": "Ações",
+          "items": [
+            "Criar plano",
+            "Adicionar aula",
+            "Exportar plano em PDF"
+          ]
+        },
+        {
+          "label": "Navegação",
+          "items": [
+            "Ir para Módulos",
+            "Ir para Comunidade",
+            "Abrir minha conta"
+          ]
+        },
+        {
+          "label": "Recentes",
+          "items": [
+            "O híbrido: HA e CaHA em detalhe",
+            "Plano de aplicação por região"
+          ]
+        }
+      ]
+    },
+    "tabs": [
+      "Visão geral",
+      "Aulas",
+      "Planos",
+      "Materiais"
+    ],
+    "accordion": [
+      {
+        "q": "Com que frequência entram aulas novas?",
+        "a": "As aulas são liberadas por módulo ao longo da turma."
+      },
+      {
+        "q": "As aulas têm certificado?",
+        "a": "O curso emite certificado ao final. As aulas ficam disponíveis para rever durante a turma."
+      }
+    ],
+    "breadcrumb": [
+      "Início",
+      "Módulos",
+      "Aplicação"
+    ],
+    "cards": [
+      {
+        "title": "O híbrido",
+        "desc": "HA para preencher agora, CaHA para estimular colágeno depois."
+      },
+      {
+        "title": "Indicação",
+        "desc": "Avaliação do caso e critérios claros de quando usar."
+      },
+      {
+        "title": "Plano de aplicação",
+        "desc": "Região, profundidade e vetores definidos antes da agulha."
+      },
+      {
+        "title": "Resultados",
+        "desc": "Acompanhamento e retorno para um resultado que se sustenta."
+      }
+    ]
+  }
+}

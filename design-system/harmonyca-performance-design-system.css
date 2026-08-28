@@ -1,0 +1,210 @@
+/* ============================================================================
+   HARMONYCA PERFORMANCE · DESIGN SYSTEM — v1.0.0
+   Desenvolvido por Edegar Junior.
+   Identidade própria da marca.
+   ----------------------------------------------------------------------------
+   USO RÁPIDO
+     <html lang="pt-BR">                         <!-- dark é o padrão -->
+     <link rel="stylesheet" href="harmonyca-performance-design-system.css">
+     <body> ... </body>
+   Tema light: adicione data-theme="light" no <html> (toggle abaixo).
+   Sem data-theme, o tema segue prefers-color-scheme do sistema.
+   Tipografia: linke silka.css ANTES deste (Silka embutida, self-contained);
+   o fallback é system-ui, então tudo funciona mesmo sem a Silka.
+   ============================================================================ */
+
+/* ===== TOKENS · tema dark (padrão) ======================================== */
+:root{
+  /* Cores institucionais — a fonte da verdade. Nada deve sair desta paleta. */
+  --brand-roxo:#7E63C9;        /* violeta · do gradiente do logo · predominante */
+  --brand-lilas:#A18FE3;       /* violeta luz · derivada */
+  --brand-azul:#3BA7E3;       /* azul céu · do gradiente do logo */
+  --brand-coral:#D96155;      /* coral · do gradiente do logo */
+  --brand-navy:#16193C;       /* navy · tinta do logo no claro */
+  --brand-amarelo:#FFE4A4;     /* 7401 U 25% */
+  --brand-vermelho:#FFB1BD;    /* red 0331 U */
+  --brand-amarelado:#FFCA9B;   /* pantone 712 U */
+  --brand-branco:#FFFFFF;
+  --brand-preto:#000000;
+
+  /* Superfícies (dark) */
+  --bg:#0A0C1B; --bg2:#10132A; --card:#171A38; --card2:#1E2246;
+  --line:rgba(161,143,227,.14);
+
+  /* Roxo / lilás / texto */
+  --roxo:#232755; --roxo2:var(--brand-roxo); --roxo-bright:#6A50C4;
+  --lilas:var(--brand-lilas); --lilas-soft:#BFB3EE; --azul:#3BA7E3; --azul-luz:#5FBBF0; --coral:#E8837A; --coral-ink:#D96155;
+  --txt:#F5FAFC; --mut:#BCC6DC; --legal-mut:#7E88AD;
+
+  /* Accent quente (-ink = variante de texto; -line = variante de borda) */
+  --gold:var(--brand-amarelo); --gold-deep:#D6C08A; --gold-ink:#FFE4A4; --gold-line:rgba(255,228,164,.42);
+  --rose:var(--brand-vermelho); --rose-ink:#FFB1BD; --rose-line:rgba(255,177,189,.42);
+  --peach:var(--brand-amarelado);
+
+  /* Marca (cor do logo SVG via currentColor) */
+  --logo:#F5FAFC;
+
+  /* Feedback / semânticas (sempre acompanhe de ícone + texto, nunca só cor) */
+  --success:#45C08A; --warning:#E8B53D; --danger:#FF7D93; --info:#A18FE3;
+  --success-bg:rgba(69,192,138,.14); --warning-bg:rgba(232,181,61,.14);
+  --danger-bg:rgba(255,125,147,.14); --row-sel:rgba(161,143,227,.16); --info-bg:rgba(161,143,227,.14);
+
+  /* Sombras / elevação */
+  --sh:rgba(126,99,201,.40); --sh-strong:rgba(126,99,201,.50);
+  --elev-1:0 1px 2px rgba(0,0,0,.34), 0 2px 6px rgba(0,0,0,.30);
+  --elev-2:0 2px 4px rgba(0,0,0,.34), 0 8px 18px rgba(0,0,0,.40);
+  --elev-3:0 4px 12px rgba(0,0,0,.45), 0 16px 36px rgba(0,0,0,.55);
+  --elev-4:0 10px 24px rgba(0,0,0,.5), 0 28px 64px rgba(0,0,0,.62);
+  --elev-raised:var(--elev-1); --elev-overlay:var(--elev-3); --elev-modal:var(--elev-4);
+
+  /* Raio · espaçamento (base 4/8) · z-index · motion · foco */
+  --radius-sm:8px; --radius-md:14px; --radius-lg:18px; --radius-pill:30px;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-6:24px; --space-8:32px; --space-12:48px;
+  --z-base:0; --z-raised:10; --z-sticky:40; --z-overlay:100; --z-toast:1000;
+  --motion-fast:.15s; --motion:.2s; --motion-slow:.4s; --ease:cubic-bezier(.2,.8,.2,1);
+  --focus-ring:#A18FE3; --focus:0 0 0 2px var(--bg),0 0 0 4px var(--focus-ring);
+  /* Foundations: opacidade · borda · blur · breakpoints · sizing · proporção */
+  --opacity-disabled:.45; --opacity-muted:.66; --opacity-hover:.08; --opacity-overlay:.58;
+  --bw-hair:1px; --bw-1:1px; --bw-2:2px;
+  --blur-sm:6px; --blur-md:12px; --blur-lg:20px;
+  --bp-phone:390px; --bp-tablet:810px; --bp-desktop:1200px;
+  --size-icon-sm:16px; --size-icon:20px; --size-icon-lg:24px; --control-h:44px; --touch-min:44px; --row-h:46px; --row-h-compact:38px; --side-w:248px; --cal-cell:38px;
+  --ar-square:1/1; --ar-photo:4/3; --ar-wide:16/9;
+
+  /* Code (permanece escuro nos dois temas) */
+  --code-bg:#05060F; --code-txt:#BFB3EE; --code-comment:#8A94BD; --code-key:#FFE4A4;
+
+  --font-sans:'Silka','Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color-scheme:dark;
+ --cta-grad:linear-gradient(120deg,#6A50C4,#2A76AD); --cta-solid:#6A50C4; --cta-solid-h:#2A76AD; --cta-ink:#fff;}
+
+/* Valores do tema light, reutilizados pelos dois seletores abaixo */
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#FAFAFA; --bg2:#F2F4FB; --card:#F8F9FD; --card2:#EBEEF9;
+    --line:rgba(126,99,201,.16);
+    --roxo:#232755; --roxo2:#7E63C9; --roxo-bright:#6A50C4;
+    --lilas:#5B44AD; --lilas-soft:#4A3A92; --azul:#1F6FA8; --azul-luz:#1F6FA8; --coral:#B0453A; --coral-ink:#B0453A; --focus-ring:#5B44AD;
+    --txt:#16193C; --mut:#525C7E; --legal-mut:#525C7E;
+    --gold:#FFE4A4; --gold-deep:#D6C08A; --gold-ink:#7A5A0E; --gold-line:rgba(122,90,14,.55);
+    --rose:#FFB1BD; --rose-ink:#B04A5E; --rose-line:rgba(176,74,94,.50);
+    --peach:#FFCA9B;
+    --logo:#16193C;
+    --success:#147A45; --warning:#8A5A00; --danger:#BE2C45; --info:#5E4A8C;
+    --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
+    --danger-bg:rgba(199,47,73,.10); --row-sel:rgba(126,99,201,.10); --info-bg:rgba(94,74,140,.10);
+    --sh:rgba(126,99,201,.18); --sh-strong:rgba(126,99,201,.26);
+    --elev-1:0 1px 2px rgba(126,99,201,.10), 0 2px 6px rgba(126,99,201,.08); --elev-2:0 2px 4px rgba(126,99,201,.10), 0 8px 16px rgba(126,99,201,.12);
+    --elev-3:0 4px 10px rgba(126,99,201,.12), 0 16px 32px rgba(126,99,201,.16); --elev-4:0 8px 18px rgba(126,99,201,.14), 0 28px 56px rgba(126,99,201,.22);
+    color-scheme:light;
+   --cta-grad:linear-gradient(120deg,#16193C,#5B44AD); --cta-solid:#16193C; --cta-solid-h:#2A2E5C; --cta-ink:#fff;}
+}
+[data-theme="light"]{
+  --bg:#FAFAFA; --focus-ring:#5B44AD; --bg2:#F2F4FB; --card:#F8F9FD; --card2:#EBEEF9;
+  --line:rgba(126,99,201,.16);
+  --roxo:#232755; --roxo2:#7E63C9; --roxo-bright:#6A50C4;
+  --lilas:#5B44AD; --lilas-soft:#4A3A92; --azul:#1F6FA8; --azul-luz:#1F6FA8; --coral:#B0453A; --coral-ink:#B0453A;
+  --txt:#16193C; --mut:#525C7E; --legal-mut:#525C7E;
+  --gold:#FFE4A4; --gold-deep:#D6C08A; --gold-ink:#7A5A0E; --gold-line:rgba(122,90,14,.55);
+  --rose:#FFB1BD; --rose-ink:#B04A5E; --rose-line:rgba(176,74,94,.50);
+  --peach:#FFCA9B;
+  --logo:#16193C;
+  --success:#147A45; --warning:#8A5A00; --danger:#BE2C45; --info:#5E4A8C;
+  --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
+  --danger-bg:rgba(199,47,73,.10); --row-sel:rgba(126,99,201,.10); --info-bg:rgba(94,74,140,.10);
+  --sh:rgba(126,99,201,.18); --sh-strong:rgba(126,99,201,.26);
+  --elev-1:0 1px 2px rgba(126,99,201,.10), 0 2px 6px rgba(126,99,201,.08); --elev-2:0 2px 4px rgba(126,99,201,.10), 0 8px 16px rgba(126,99,201,.12);
+  --elev-3:0 4px 10px rgba(126,99,201,.12), 0 16px 32px rgba(126,99,201,.16); --elev-4:0 8px 18px rgba(126,99,201,.14), 0 28px 56px rgba(126,99,201,.22);
+  color-scheme:light;
+ --cta-grad:linear-gradient(120deg,#16193C,#5B44AD); --cta-solid:#16193C; --cta-solid-h:#2A2E5C; --cta-ink:#fff;}
+
+/* ===== RESET / BASE ======================================================= */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--txt);line-height:1.5;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+img,svg,video{display:block;max-width:100%}
+a{color:var(--lilas);text-decoration:none}
+
+/* Acessibilidade: foco visível (WCAG 2.4.7 / 1.4.11) + movimento reduzido */
+a:focus-visible,button:focus-visible,.hp-btn:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--lilas);outline-offset:2px;box-shadow:var(--focus);border-radius:6px}
+@media (forced-colors: active){
+  a:focus-visible,button:focus-visible,.hp-btn:focus-visible{outline:2px solid Highlight!important;outline-offset:2px}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+
+/* ===== TIPOGRAFIA · escala fluida (Desktop ⇄ Phone) ======================= */
+/* Breakpoints Framer de referência: Desktop ≥1200 · Tablet ≤810 · Phone ≤390 */
+.hp-eyebrow{font-size:clamp(11px,1.4vw,12px);letter-spacing:.18em;text-transform:uppercase;color:var(--lilas);font-weight:600}
+.hp-h1{font-size:clamp(34px,6vw,60px);font-weight:500;letter-spacing:-.025em;line-height:1.03}
+.hp-h2{font-size:clamp(26px,4vw,38px);font-weight:500;letter-spacing:-.02em;line-height:1.12}
+.hp-h3{font-size:clamp(20px,2.4vw,24px);font-weight:500;line-height:1.2}
+.hp-h4{font-size:clamp(18px,2vw,20px);font-weight:500;letter-spacing:-.01em;line-height:1.25}
+.hp-h5{font-size:clamp(16px,1.7vw,17px);font-weight:500;line-height:1.3}
+.hp-h6{font-size:clamp(13px,1.4vw,15px);font-weight:500;line-height:1.35}
+.hp-lead{font-size:clamp(16px,1.8vw,18px);font-weight:300;color:var(--mut);line-height:1.5}
+.hp-body{font-size:16px;font-weight:300;line-height:1.65}
+.hp-small{font-size:14px;font-weight:300;color:var(--mut);line-height:1.6}
+.hp-legal{font-size:clamp(11px,1.2vw,12px);font-weight:300;color:var(--legal-mut);line-height:1.5}
+.hp-num{font-size:clamp(32px,4.6vw,44px);font-weight:700;line-height:1;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.hp-hl{color:var(--lilas)}
+
+/* ===== BOTÕES =============================================================
+   Estrutura: class="hp-btn <variante> <tamanho>"
+   Variantes: hp-fill | hp-solid | hp-outline | hp-ghost | hp-gold | hp-gold-o
+   Tamanhos : hp-sm | (md = padrão) | hp-lg
+   Ícone    : <svg class="hp-ico">…</svg> (Phosphor Thin, currentColor)        */
+.hp-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:inherit;font-size:15px;font-weight:600;border:none;cursor:pointer;text-decoration:none;
+  border-radius:var(--radius-pill);transition:.2s var(--ease);white-space:nowrap;min-height:44px;max-width:100%;padding:14px 26px}
+.hp-btn.hp-sm{font-size:13px;padding:10px 18px;gap:7px}
+.hp-btn.hp-lg{font-size:16px;padding:17px 32px}
+.hp-btn.hp-fill{background:var(--cta-grad);color:var(--cta-ink);box-shadow:0 10px 30px var(--sh)}
+.hp-btn.hp-fill:hover{transform:translateY(-2px);box-shadow:0 16px 38px var(--sh-strong)}
+.hp-btn.hp-solid{background:var(--cta-solid);color:var(--cta-ink)}
+.hp-btn.hp-solid:hover{background:var(--cta-solid-h)}
+.hp-btn.hp-outline{background:transparent;color:var(--txt);border:1px solid var(--line)}
+.hp-btn.hp-outline:hover{border-color:var(--lilas);color:var(--lilas)}
+.hp-btn.hp-ghost{background:transparent;color:var(--lilas);padding:10px 14px;border-radius:var(--radius-sm)}
+.hp-btn.hp-ghost:hover{color:var(--lilas-soft);text-decoration:underline;text-underline-offset:3px}
+.hp-btn.hp-gold{background:var(--gold);color:#140D1B;border:1px solid var(--gold-ink)}
+.hp-btn.hp-gold:hover{background:var(--gold-deep)}
+.hp-btn.hp-gold-o{background:transparent;color:var(--gold-ink);border:1px solid var(--gold-line)}
+.hp-btn.hp-gold-o:hover{border-color:var(--gold-ink)}
+.hp-btn:active{transform:translateY(0) scale(.985);transition-duration:var(--motion-fast)}
+.hp-btn:disabled,.hp-btn[aria-disabled="true"]{opacity:.42;pointer-events:none;box-shadow:none;transform:none}
+.hp-ico{width:18px;height:18px;flex:0 0 auto}
+.hp-btn.hp-sm .hp-ico{width:15px;height:15px}.hp-btn.hp-lg .hp-ico{width:19px;height:19px}
+@media(max-width:560px){.hp-btn{white-space:normal;text-align:center}}
+
+/* ===== CHIP / BADGE / STATUS ============================================== */
+.hp-chip{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);
+  color:var(--txt);font-size:13.5px;padding:9px 16px;border-radius:var(--radius-pill)}
+.hp-badge{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;
+  color:var(--gold-ink);border:1px solid var(--gold-line);padding:4px 10px;border-radius:20px}
+.hp-status{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;
+  padding:9px 15px;border-radius:var(--radius-pill);border:1px solid currentColor}
+.hp-status .hp-ico{width:16px;height:16px}
+.hp-status.is-success{color:var(--success);background:var(--success-bg)}
+.hp-status.is-warning{color:var(--warning);background:var(--warning-bg)}
+.hp-status.is-danger{color:var(--danger);background:var(--danger-bg)}
+.hp-status.is-info{color:var(--info);background:var(--info-bg)}
+
+/* ===== CARD / SUPERFÍCIE / LOGO =========================================== */
+.hp-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--space-6)}
+.hp-logo{color:var(--logo)}                 /* aplique em SVG com fill="currentColor" */
+
+/* ===== GRADIENTES (subconjunto — só meshes/lineares do brand) =============
+   Biblioteca completa em index.html (seção Gradientes).
+   Regra: somente cores do brand. NÃO usar conic, blob ou halo.              */
+.hp-grad-primary{background:linear-gradient(120deg,#16193C,#5B44AD)}
+.hp-grad-spectral{background:linear-gradient(110deg,#232755,#7E63C9 28%,#A18FE3 54%,#FFB1BD 80%,#FFCA9B)}
+.hp-grad-mesh{background:
+  radial-gradient(at 18% 22%,rgba(161,143,227,.55) 0,transparent 45%),
+  radial-gradient(at 78% 18%,rgba(255,177,189,.30) 0,transparent 42%),
+  radial-gradient(at 68% 78%,rgba(126,99,201,.70) 0,transparent 50%),
+  radial-gradient(at 30% 92%,rgba(255,202,155,.22) 0,transparent 46%),#0A0C1B}
+.hp-grad-spot{background:radial-gradient(at 50% -15%,rgba(161,143,227,.55) 0,transparent 62%),#0A0C1B}
