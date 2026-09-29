@@ -22,7 +22,7 @@ Pacote para aplicar a marca em **qualquer projeto/ferramenta** (web, React, Fram
 
 ## Notas técnicas
 
-- **Cores:** extraídas do **gradiente do medidor do logo** (azul céu `#3BA7E3`, violeta `#7E63C9`, coral `#D96155`) mais o navy `#16193C` (tinta do logo no claro) e o apoio herdado da família (amarelo claro `#FFE4A4`, vermelho claro `#FFB1BD`, amarelado `#FFCA9B`). Derivadas medidas em WCAG AA nos dois temas (varredura com 0 falhas).
+- **Cores:** extraídas do **gradiente do medidor do logo** (azul céu `#3BA7E3`, violeta `#7E63C9`, coral `#D96155`) mais o navy `#16193C` (tinta do logo no claro) e o apoio herdado da família (dourado claro `#FFE4A4`, rosa claro `#FFB1BD`, pêssego `#FFCA9B`). Derivadas medidas em WCAG AA nos dois temas (varredura com 0 falhas).
 - **Logo:** texto nas cores do arquivo (gelo `#F5FAFC` no escuro, navy `#16193C` no claro); o medidor mantém o gradiente oficial e não se recolore.
 - **Tipografia:** Silka (institucional), embutida em base64/woff2; Poppins como fallback, depois system-ui. **Headers em Medium (500)**; eyebrow 600; numeral 700; body 300.
 - **Ícones:** biblioteca **Phosphor**, peso **Thin** (stroke 1pt na grade 24), `currentColor`.
@@ -35,5 +35,6 @@ Repo público `harmonyca-performance-design-system` (conta `Eddie-FacialAcademy`
 
 ## CHANGELOG
 
+- **1.1.0**: nomes de cor organizados (cores da marca com o nome real, tokens de uso neutros e iguais em todos os DS, nomes antigos como apelidos até a 2.0), seção 13 como "Relação com o molde" e rótulos de gradiente com as cores reais.
 - **1.0.3** (2026-09-29): CTA escuro `#6F56C6`, dia selecionado do calendário com `--cta-solid`/`--cta-ink`, prévia de tema com o CTA real e seletor de DS com a Facial Premium.
 - **1.0.0** (2026-08-28): primeira versão da marca, derivada do molde Facial Academy com paleta do medidor do logo (azul, violeta, coral e navy). Histórico completo em `design-system/CHANGELOG.md`.

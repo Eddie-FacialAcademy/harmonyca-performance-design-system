@@ -1,5 +1,5 @@
 /* ============================================================================
-   HARMONYCA PERFORMANCE · DESIGN SYSTEM — v1.0.3
+   HARMONYCA PERFORMANCE · DESIGN SYSTEM — v1.1.0
    Desenvolvido por Edegar Junior.
    Identidade própria da marca.
    ----------------------------------------------------------------------------
@@ -16,29 +16,29 @@
 /* ===== TOKENS · tema dark (padrão) ======================================== */
 :root{
   /* Cores institucionais — a fonte da verdade. Nada deve sair desta paleta. */
-  --brand-roxo:#7E63C9;        /* violeta · do gradiente do logo · predominante */
-  --brand-lilas:#A18FE3;       /* violeta luz · derivada */
-  --brand-azul:#3BA7E3;       /* azul céu · do gradiente do logo */
+  --brand-violeta:#7E63C9;        /* violeta · do gradiente do logo · predominante */
+  --brand-violeta-luz:#A18FE3;       /* violeta luz · derivada */
+  --brand-azul-ceu:#3BA7E3;       /* azul céu · do gradiente do logo */
   --brand-coral:#D96155;      /* coral · do gradiente do logo */
   --brand-navy:#16193C;       /* navy · tinta do logo no claro */
-  --brand-amarelo:#FFE4A4;     /* 7401 U 25% */
-  --brand-vermelho:#FFB1BD;    /* red 0331 U */
-  --brand-amarelado:#FFCA9B;   /* pantone 712 U */
-  --brand-branco:#F5FAFC;
+  --brand-dourado:#FFE4A4;     /* 7401 U 25% */
+  --brand-rosa:#FFB1BD;    /* red 0331 U */
+  --brand-pessego:#FFCA9B;   /* pantone 712 U */
+  --brand-gelo:#F5FAFC;
 
   /* Superfícies (dark) */
   --bg:#0A0C1B; --bg2:#10132A; --card:#171A38; --card2:#1E2246;
   --line:rgba(161,143,227,.14);
 
   /* Roxo / lilás / texto */
-  --roxo:#232755; --roxo2:var(--brand-roxo); --roxo-bright:#6A50C4;
-  --lilas:var(--brand-lilas); --lilas-soft:#BFB3EE; --azul:#3BA7E3; --azul-luz:#5FBBF0; --coral:#E8837A; --coral-ink:#D96155;
+  --primary-deep:#232755; --primary:var(--brand-violeta); --primary-bright:#6A50C4;
+  --accent:var(--brand-violeta-luz); --accent-soft:#BFB3EE; --secondary:#3BA7E3; --secondary-bright:#5FBBF0; --tertiary:#E8837A; --tertiary-ink:#D96155;
   --txt:#F5FAFC; --mut:#BCC6DC; --legal-mut:#7E88AD;
 
   /* Accent quente (-ink = variante de texto; -line = variante de borda) */
-  --gold:var(--brand-amarelo); --gold-deep:#D6C08A; --gold-ink:#FFE4A4; --gold-line:rgba(255,228,164,.42);
-  --rose:var(--brand-vermelho); --rose-ink:#FFB1BD; --rose-line:rgba(255,177,189,.42);
-  --peach:var(--brand-amarelado);
+  --highlight:var(--brand-dourado); --highlight-deep:#D6C08A; --highlight-ink:#FFE4A4; --highlight-line:rgba(255,228,164,.42);
+  --support:var(--brand-rosa); --support-ink:#FFB1BD; --support-line:rgba(255,177,189,.42);
+  --glow:var(--brand-pessego);
 
   /* Marca (cor do logo SVG via currentColor) */
   --logo:#F5FAFC;
@@ -75,19 +75,29 @@
 
   --font-sans:'Silka','Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   color-scheme:dark;
- --cta-grad:linear-gradient(120deg,#6F56C6,#2A76AD); --cta-solid:#6F56C6; --cta-solid-h:#2A76AD; --cta-ink:#fff;}
+ --cta-grad:linear-gradient(120deg,#6F56C6,#2A76AD); --cta-solid:#6F56C6; --cta-solid-h:#2A76AD; --cta-ink:#fff;
+
+  /* Nomes legados (descontinuados na 1.1.0, saem na 2.0): apontam para os nomes novos.
+     Use os nomes novos em código novo. */
+  --roxo-bright:var(--primary-bright); --lilas-soft:var(--accent-soft); --gold-deep:var(--highlight-deep); --gold-line:var(--highlight-line);
+  --rose-line:var(--support-line); --coral-ink:var(--tertiary-ink); --gold-ink:var(--highlight-ink); --rose-ink:var(--support-ink);
+  --azul-luz:var(--secondary-bright); --roxo2:var(--primary); --lilas:var(--accent); --peach:var(--glow);
+  --coral:var(--tertiary); --roxo:var(--primary-deep); --gold:var(--highlight); --rose:var(--support);
+  --azul:var(--secondary); --brand-amarelo:var(--brand-dourado); --brand-vermelho:var(--brand-rosa); --brand-amarelado:var(--brand-pessego);
+  --brand-roxo:var(--brand-violeta); --brand-lilas:var(--brand-violeta-luz); --brand-azul:var(--brand-azul-ceu); --brand-branco:var(--brand-gelo);
+}
 
 /* Valores do tema light, reutilizados pelos dois seletores abaixo */
 @media (prefers-color-scheme: light){
   :root:not([data-theme="dark"]){
     --bg:#FAFAFA; --bg2:#F2F4FB; --card:#F8F9FD; --card2:#EBEEF9;
     --line:rgba(126,99,201,.16);
-    --roxo:#232755; --roxo2:#7E63C9; --roxo-bright:#6A50C4;
-    --lilas:#5B44AD; --lilas-soft:#4A3A92; --azul:#1F6FA8; --azul-luz:#1F6FA8; --coral:#B0453A; --coral-ink:#B0453A; --focus-ring:#5B44AD;
+    --primary-deep:#232755; --primary:#7E63C9; --primary-bright:#6A50C4;
+    --accent:#5B44AD; --accent-soft:#4A3A92; --secondary:#1F6FA8; --secondary-bright:#1F6FA8; --tertiary:#B0453A; --tertiary-ink:#B0453A; --focus-ring:#5B44AD;
     --txt:#16193C; --mut:#525C7E; --legal-mut:#525C7E;
-    --gold:#FFE4A4; --gold-deep:#D6C08A; --gold-ink:#7A5A0E; --gold-line:rgba(122,90,14,.55);
-    --rose:#FFB1BD; --rose-ink:#B04A5E; --rose-line:rgba(176,74,94,.50);
-    --peach:#FFCA9B;
+    --highlight:#FFE4A4; --highlight-deep:#D6C08A; --highlight-ink:#7A5A0E; --highlight-line:rgba(122,90,14,.55);
+    --support:#FFB1BD; --support-ink:#B04A5E; --support-line:rgba(176,74,94,.50);
+    --glow:#FFCA9B;
     --logo:#16193C;
     --success:#147A45; --warning:#8A5A00; --danger:#BE2C45; --info:#5E4A8C;
     --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
@@ -101,12 +111,12 @@
 [data-theme="light"]{
   --bg:#FAFAFA; --focus-ring:#5B44AD; --bg2:#F2F4FB; --card:#F8F9FD; --card2:#EBEEF9;
   --line:rgba(126,99,201,.16);
-  --roxo:#232755; --roxo2:#7E63C9; --roxo-bright:#6A50C4;
-  --lilas:#5B44AD; --lilas-soft:#4A3A92; --azul:#1F6FA8; --azul-luz:#1F6FA8; --coral:#B0453A; --coral-ink:#B0453A;
+  --primary-deep:#232755; --primary:#7E63C9; --primary-bright:#6A50C4;
+  --accent:#5B44AD; --accent-soft:#4A3A92; --secondary:#1F6FA8; --secondary-bright:#1F6FA8; --tertiary:#B0453A; --tertiary-ink:#B0453A;
   --txt:#16193C; --mut:#525C7E; --legal-mut:#525C7E;
-  --gold:#FFE4A4; --gold-deep:#D6C08A; --gold-ink:#7A5A0E; --gold-line:rgba(122,90,14,.55);
-  --rose:#FFB1BD; --rose-ink:#B04A5E; --rose-line:rgba(176,74,94,.50);
-  --peach:#FFCA9B;
+  --highlight:#FFE4A4; --highlight-deep:#D6C08A; --highlight-ink:#7A5A0E; --highlight-line:rgba(122,90,14,.55);
+  --support:#FFB1BD; --support-ink:#B04A5E; --support-line:rgba(176,74,94,.50);
+  --glow:#FFCA9B;
   --logo:#16193C;
   --success:#147A45; --warning:#8A5A00; --danger:#BE2C45; --info:#5E4A8C;
   --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
@@ -122,11 +132,11 @@
 html{scroll-behavior:smooth}
 body{font-family:var(--font-sans);background:var(--bg);color:var(--txt);line-height:1.5;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
 img,svg,video{display:block;max-width:100%}
-a{color:var(--lilas);text-decoration:none}
+a{color:var(--accent);text-decoration:none}
 
 /* Acessibilidade: foco visível (WCAG 2.4.7 / 1.4.11) + movimento reduzido */
 a:focus-visible,button:focus-visible,.hp-btn:focus-visible,[tabindex]:focus-visible{
-  outline:2px solid var(--lilas);outline-offset:2px;box-shadow:var(--focus);border-radius:6px}
+  outline:2px solid var(--accent);outline-offset:2px;box-shadow:var(--focus);border-radius:6px}
 @media (forced-colors: active){
   a:focus-visible,button:focus-visible,.hp-btn:focus-visible{outline:2px solid Highlight!important;outline-offset:2px}
 }
@@ -137,7 +147,7 @@ a:focus-visible,button:focus-visible,.hp-btn:focus-visible,[tabindex]:focus-visi
 
 /* ===== TIPOGRAFIA · escala fluida (Desktop ⇄ Phone) ======================= */
 /* Breakpoints Framer de referência: Desktop ≥1200 · Tablet ≤810 · Phone ≤390 */
-.hp-eyebrow{font-size:clamp(11px,1.4vw,12px);letter-spacing:.18em;text-transform:uppercase;color:var(--lilas);font-weight:600}
+.hp-eyebrow{font-size:clamp(11px,1.4vw,12px);letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600}
 .hp-h1{font-size:clamp(34px,6vw,60px);font-weight:500;letter-spacing:-.025em;line-height:1.03}
 .hp-h2{font-size:clamp(26px,4vw,38px);font-weight:500;letter-spacing:-.02em;line-height:1.12}
 .hp-h3{font-size:clamp(20px,2.4vw,24px);font-weight:500;line-height:1.2}
@@ -149,7 +159,7 @@ a:focus-visible,button:focus-visible,.hp-btn:focus-visible,[tabindex]:focus-visi
 .hp-small{font-size:14px;font-weight:300;color:var(--mut);line-height:1.6}
 .hp-legal{font-size:clamp(11px,1.2vw,12px);font-weight:300;color:var(--legal-mut);line-height:1.5}
 .hp-num{font-size:clamp(32px,4.6vw,44px);font-weight:700;line-height:1;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
-.hp-hl{color:var(--lilas)}
+.hp-hl{color:var(--accent)}
 
 /* ===== BOTÕES =============================================================
    Estrutura: class="hp-btn <variante> <tamanho>"
@@ -166,13 +176,13 @@ a:focus-visible,button:focus-visible,.hp-btn:focus-visible,[tabindex]:focus-visi
 .hp-btn.hp-solid{background:var(--cta-solid);color:var(--cta-ink)}
 .hp-btn.hp-solid:hover{background:var(--cta-solid-h)}
 .hp-btn.hp-outline{background:transparent;color:var(--txt);border:1px solid var(--line)}
-.hp-btn.hp-outline:hover{border-color:var(--lilas);color:var(--lilas)}
-.hp-btn.hp-ghost{background:transparent;color:var(--lilas);padding:10px 14px;border-radius:var(--radius-sm)}
-.hp-btn.hp-ghost:hover{color:var(--lilas-soft);text-decoration:underline;text-underline-offset:3px}
-.hp-btn.hp-gold{background:var(--gold);color:#140D1B;border:1px solid var(--gold-ink)}
-.hp-btn.hp-gold:hover{background:var(--gold-deep)}
-.hp-btn.hp-gold-o{background:transparent;color:var(--gold-ink);border:1px solid var(--gold-line)}
-.hp-btn.hp-gold-o:hover{border-color:var(--gold-ink)}
+.hp-btn.hp-outline:hover{border-color:var(--accent);color:var(--accent)}
+.hp-btn.hp-ghost{background:transparent;color:var(--accent);padding:10px 14px;border-radius:var(--radius-sm)}
+.hp-btn.hp-ghost:hover{color:var(--accent-soft);text-decoration:underline;text-underline-offset:3px}
+.hp-btn.hp-highlight,.hp-btn.hp-gold{background:var(--highlight);color:#140D1B;border:1px solid var(--highlight-ink)}
+.hp-btn.hp-highlight:hover,.hp-btn.hp-gold:hover{background:var(--highlight-deep)}
+.hp-btn.hp-highlight-o,.hp-btn.hp-gold-o{background:transparent;color:var(--highlight-ink);border:1px solid var(--highlight-line)}
+.hp-btn.hp-highlight-o:hover,.hp-btn.hp-gold-o:hover{border-color:var(--highlight-ink)}
 .hp-btn:active{transform:translateY(0) scale(.985);transition-duration:var(--motion-fast)}
 .hp-btn:disabled,.hp-btn[aria-disabled="true"]{opacity:.42;pointer-events:none;box-shadow:none;transform:none}
 .hp-ico{width:18px;height:18px;flex:0 0 auto}
@@ -183,7 +193,7 @@ a:focus-visible,button:focus-visible,.hp-btn:focus-visible,[tabindex]:focus-visi
 .hp-chip{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);
   color:var(--txt);font-size:13.5px;padding:9px 16px;border-radius:var(--radius-pill)}
 .hp-badge{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;
-  color:var(--gold-ink);border:1px solid var(--gold-line);padding:4px 10px;border-radius:20px}
+  color:var(--highlight-ink);border:1px solid var(--highlight-line);padding:4px 10px;border-radius:20px}
 .hp-status{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;
   padding:9px 15px;border-radius:var(--radius-pill);border:1px solid currentColor}
 .hp-status .hp-ico{width:16px;height:16px}

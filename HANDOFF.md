@@ -1,4 +1,4 @@
-# Handoff · HArmonyCa Performance Design System (Versão 1.0.3 · estado em 2026-09-29)
+# Handoff · HArmonyCa Performance Design System (Versão 1.1.0 · estado em 2026-09-29)
 
 Desenvolvido por **Edegar Junior**. Ponto de retomada; atualizar conforme avançar.
 
@@ -11,7 +11,7 @@ Desenvolvido por **Edegar Junior**. Ponto de retomada; atualizar conforme avanç
 
 ### Marca
 - Derivada do molde **Facial Academy** (mesma arquitetura, seções e JS).
-- Paleta extraída do **gradiente do medidor**: azul céu `#3BA7E3`, violeta `#7E63C9` (predominante), coral `#D96155`, mais o navy `#16193C` (tinta do logo). Derivadas: violeta profundo `#232755`, violeta intenso `#6A50C4`, violeta luz `#A18FE3`, azul médio `#2A76AD`, azul luz `#5FBBF0`, coral luz `#E8837A` e os tons sobre claro `#5B44AD`/`#1F6FA8`/`#B0453A`. Apoio herdado: amarelo `#FFE4A4`, vermelho claro `#FFB1BD`, amarelado `#FFCA9B`.
+- Paleta extraída do **gradiente do medidor**: azul céu `#3BA7E3`, violeta `#7E63C9` (predominante), coral `#D96155`, mais o navy `#16193C` (tinta do logo). Derivadas: violeta profundo `#232755`, violeta intenso `#6A50C4`, violeta luz `#A18FE3`, azul médio `#2A76AD`, azul luz `#5FBBF0`, coral luz `#E8837A` e os tons sobre claro `#5B44AD`/`#1F6FA8`/`#B0453A`. Apoio herdado: amarelo `#FFE4A4`, rosa claro `#FFB1BD`, pêssego `#FFCA9B`.
 - **Logo:** wordmark "HArmonyCa Performance" com o medidor (arco + pontos) em gradiente fixo azul→violeta→coral. Composições: horizontal, monocromática (currentColor) e ícone. **Não existe versão vertical.** Texto segue o tema por `currentColor` com as cores do arquivo: gelo `#F5FAFC` no escuro, navy `#16193C` no claro. Não recolorir. Fonte dos arquivos: `Design - Eddie/Facial Academy/64 - HArmonyCa Performance/_ID visual/SVG` (somente a ID visual; o restante da pasta é legado e não se usa).
 - **Domínio:** curso do injetável híbrido (produto, indicação, plano de aplicação, resultados). Glossário em `design-system/glossario-marca.md`.
 
