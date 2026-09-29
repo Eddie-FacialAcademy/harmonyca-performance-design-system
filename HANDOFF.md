@@ -1,4 +1,4 @@
-# Handoff — HArmonyCa Performance Design System (Versão 1.0.0 · estado em 2026-08-28)
+# Handoff · HArmonyCa Performance Design System (Versão 1.0.3 · estado em 2026-09-29)
 
 Desenvolvido por **Edegar Junior**. Ponto de retomada; atualizar conforme avançar.
 
@@ -17,7 +17,7 @@ Desenvolvido por **Edegar Junior**. Ponto de retomada; atualizar conforme avanç
 
 ### Acessibilidade (medida, não estimada)
 - Pares de contraste da paleta medidos antes do build; varredura renderizada com **0 falhas nos dois temas**.
-- CTA por tema: escuro `#6A50C4 → #2A76AD` (branco 5.9:1 e 4.9:1; botão vs fundo 3.3:1 e 4.0:1), claro `#16193C → #5B44AD` (branco 17:1 e 7.3:1).
+- CTA por tema: escuro `#6F56C6 → #2A76AD` (branco 5.5:1 e 4.9:1; botão vs fundo 3.5:1 e 4.0:1), claro `#16193C → #5B44AD` (branco 17:1 e 7.3:1).
 - Anel de foco em 2 camadas: `--focus-ring` escuro `#A18FE3`, claro `#5B44AD`; guard forced-colors com `outline !important`.
 
 ### Pacote portátil (`design-system/`)

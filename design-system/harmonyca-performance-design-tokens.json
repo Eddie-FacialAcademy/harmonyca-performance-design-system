@@ -1,7 +1,7 @@
 {
   "$meta": {
     "name": "HArmonyCa Performance Design System",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "author": "Edegar Junior",
     "source": "Identidade visual própria da marca",
     "language": "pt-BR",
@@ -40,8 +40,8 @@
       "roxoBright": "#6A50C4",
       "lilas": "#A18FE3",
       "lilasSoft": "#BFB3EE",
-      "cta": "#6A50C4",
-      "ctaGrad": "linear-gradient(120deg,#6A50C4,#2A76AD)",
+      "cta": "#6F56C6",
+      "ctaGrad": "linear-gradient(120deg,#6F56C6,#2A76AD)",
       "ctaInk": "#fff",
       "txt": "#F5FAFC",
       "mut": "#BCC6DC",

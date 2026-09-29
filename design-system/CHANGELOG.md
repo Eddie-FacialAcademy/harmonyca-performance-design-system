@@ -1,12 +1,12 @@
-# Changelog — HArmonyCa Performance Design System
+# Changelog · HArmonyCa Performance Design System
 
 Todas as mudanças relevantes deste design system são registradas aqui.
 O formato segue [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e o
 versionamento segue [SemVer](https://semver.org/lang/pt-BR/):
 
-- **MAJOR** — muda ou remove um token/API público (quebra compatibilidade).
-- **MINOR** — adiciona de forma retrocompatível (novo componente/token/variante).
-- **PATCH** — correções que não mudam a API (bug, contraste, ajuste fino).
+- **MAJOR**: muda ou remove um token/API público (quebra compatibilidade).
+- **MINOR**: adiciona de forma retrocompatível (novo componente/token/variante).
+- **PATCH**: correções que não mudam a API (bug, contraste, ajuste fino).
 
 ---
 
@@ -14,20 +14,32 @@ versionamento segue [SemVer](https://semver.org/lang/pt-BR/):
 
 _Nada pendente no momento._
 
-## [1.0.2] — 2026-08-28
+## [1.0.3] · 2026-09-29
+### Corrigido
+- CTA do tema escuro: início do degradê e sólido `#6A50C4` → `#6F56C6`; o botão passava 2.9:1 contra o modal e agora fica ≥3:1; texto branco 5.5:1.
+- Dia selecionado do calendário usa `--cta-solid` e `--cta-ink`, no mesmo padrão dos outros DS (aqui o roxo base já passava: 3.6:1 contra o calendário).
+- Prévia de tema (cartões escuro e claro) mostra o CTA real de cada tema.
+- `--brand-azul`, `--brand-coral` e `--brand-navy` presentes também no showcase (antes só no CSS e no JSON).
+- Tabela de acessibilidade do showcase com valores medidos nos dois temas (antes repetia números do molde que não eram desta paleta) e linha nova "CTA contra o fundo" (nível 2).
+### Alterado
+- Seletor de design systems inclui a Facial Premium, na ordem única usada em todos os DS.
+- Versão alinhada em todos os arquivos: tokens, CSS, copy-deck e documentação estavam presos em uma versão anterior ao CHANGELOG.
+- Documentação sem travessão e sem "&", com valores de cor, contraste e classe conferidos contra o CSS e o JSON; referências a versões e arquivos inexistentes corrigidas.
+
+## [1.0.2] · 2026-08-28
 ### Corrigido
 - Cor de marca branca alinhada ao arquivo do logo: gelo `#F5FAFC` no lugar do
   `#FFFFFF` absoluto; o swatch de preto absoluto saiu (o escuro da marca é o
   navy `#16193C`).
 
-## [1.0.1] — 2026-08-28
+## [1.0.1] · 2026-08-28
 ### Alterado
 - Menu "Design systems" agora inclui Expert em Lábios 2026.
 ### Corrigido
 - Galeria de gradientes retintada por completo na paleta da marca; o espectro
   agora varre do azul céu ao coral, como o medidor do logo.
 
-## [1.0.0] — 2026-08-28
+## [1.0.0] · 2026-08-28
 
 Primeira versão do HArmonyCa Performance, derivada do molde Facial Academy.
 Paleta extraída do gradiente do medidor do logo (azul céu `#3BA7E3`, violeta

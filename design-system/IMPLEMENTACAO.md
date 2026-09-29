@@ -1,9 +1,9 @@
-# Implementação — HArmonyCa Performance Design System
+# Implementação · HArmonyCa Performance Design System
 
 Documentação técnica de **como cada item é implementado**, para subir em qualquer infra (HTML/CSS puro, qualquer stack via tokens, ou Framer). Tudo aqui reflete o que está no showcase publicado (`index.html`) e no pacote `design-system/`. Em caso de divergência, **o showcase + `harmonyca-performance-design-tokens.json` são a fonte da verdade**; o `harmonyca-performance-design-system.css` (drop-in) espelha esses tokens.
 
 - **Sem build step.** O showcase é um único `index.html` self-contained (CSS em `<style>`, SVGs em `<defs><symbol>`, JS em `<script>`, fonte Silka embutida em base64). Abre direto no navegador, sem bundler, sem dependências de rede.
-- **Marca irmã:** Corporal Class. Mesma arquitetura; só mudam cores, prefixo de classe (`cc-`), chave de tema (`cc-theme`) e nomes de arquivo. Ver a seção **13. Diferenças por marca**.
+- **Molde:** derivado do molde Facial Academy (ver CHANGELOG 1.0.0). As marcas do ecossistema têm a mesma arquitetura; mudam cores, prefixo de classe, chave de tema e nomes de arquivo. A seção **13. Diferenças por marca** compara com a Corporal Class.
 
 ---
 
@@ -58,7 +58,7 @@ O toggle (`#themeToggle`, `.theme-toggle`, com `aria-pressed`) alterna `data-the
 
 > **Numa infra sua:** para evitar flash de tema, replique o IIFE de init no `<head>` (inline, antes do CSS). Sem JS, o site ainda segue `prefers-color-scheme`.
 
-### 2.2 Cores institucionais (brand) — base imutável
+### 2.2 Cores institucionais (brand): base imutável
 
 Cores institucionais da marca: violeta `#7E63C9`, azul céu `#3BA7E3`, coral `#D96155` e navy `#16193C` (do logo) mais o apoio herdado. Nada deve sair daqui.
 
@@ -66,11 +66,13 @@ Cores institucionais da marca: violeta `#7E63C9`, azul céu `#3BA7E3`, coral `#D
 |---|---|---|
 | `--brand-roxo` | `#7E63C9` | predominante |
 | `--brand-lilas` | `#A18FE3` | accent claro |
+| `--brand-azul` | `#3BA7E3` | azul céu (gradiente do medidor) |
+| `--brand-coral` | `#D96155` | coral (gradiente do medidor) |
+| `--brand-navy` | `#16193C` | navy (tinta do logo no claro) |
 | `--brand-amarelo` | `#FFE4A4` | dourado |
 | `--brand-vermelho` | `#FFB1BD` | rosa |
 | `--brand-amarelado` | `#FFCA9B` | pêssego |
-| `--brand-branco` | `#FFFFFF` | — |
-| `--brand-preto` | `#000000` | — |
+| `--brand-branco` | `#F5FAFC` | gelo (texto do logo no escuro) |
 
 Os `--brand-*` **não** mudam entre temas; os tokens de tema abaixo é que derivam deles.
 
@@ -87,21 +89,21 @@ Os `--brand-*` **não** mudam entre temas; os tokens de tema abaixo é que deriv
 | `--mut` | `#BCC6DC` | `#525C7E` | texto secundário |
 | `--legal-mut` | `#7E88AD` | `#525C7E` | texto legal/rodapé |
 | `--roxo` | `#232755` | `#232755` | roxo profundo (gradiente) |
-| `--roxo2` | `#7E63C9` | `#7E63C9` | primária (seleção, dia/linha selecionada) |
-| `--roxo-bright` | `#6A50C4` | `#6A50C4` | roxo claro (base do `--cta` escuro) |
+| `--roxo2` | `#7E63C9` | `#7E63C9` | primária da marca (gradientes, accents) |
+| `--roxo-bright` | `#6A50C4` | `#6A50C4` | violeta intenso (o CTA escuro usa `#6F56C6`, ver abaixo) |
 
-#### CTA — token theme-aware (acessibilidade de contraste de componente)
+#### CTA: token theme-aware (acessibilidade de contraste de componente)
 
-O **CTA** (botão preenchido/sólido) é o único token de cor que muda de tom entre os temas **por acessibilidade de componente** (WCAG 1.4.11 — *Non-text Contrast*, ≥3:1 do botão vs. fundo). No tema escuro, o violeta base `#7E63C9` não é usado como CTA; o token nasce com `#6A50C4`. Contexto: ficava com ~2.6:1 contra o fundo `#0A0C1B` e "apagava"; por isso o CTA escuro foi **clareado** para `#6A50C4`. No tema claro, o CTA segue `#7E63C9` (inalterado).
+O **CTA** (botão preenchido/sólido) é o único token de cor que muda de tom entre os temas **por acessibilidade de componente** (WCAG 1.4.11, *Non-text Contrast*, ≥3:1 do botão vs. fundo). No tema escuro, o violeta base `#7E63C9` não é usado como CTA; o token usa `#6F56C6` (branco 5.5:1; botão 3.5:1 contra o fundo `#0A0C1B` e 3.1:1 contra o modal `#171A38`; ver CHANGELOG 1.0.3). No tema claro, o CTA é o navy `#16193C`, com fim de gradiente em `#5B44AD`.
 
 | Token | Dark | Light | Uso |
 |---|---|---|---|
-| `--cta-grad` | `linear-gradient(120deg,#6A50C4,#2A76AD)` | `linear-gradient(120deg,#16193C,#5B44AD)` | fundo do botão preenchido (`.b.fill`/`.hp-fill`) |
-| `--cta-solid` | `#6A50C4` | `#16193C` | fundo do botão sólido (`.b.solid`/`.hp-solid`) |
+| `--cta-grad` | `linear-gradient(120deg,#6F56C6,#2A76AD)` | `linear-gradient(120deg,#16193C,#5B44AD)` | fundo do botão preenchido (`.b.fill`/`.hp-fill`) |
+| `--cta-solid` | `#6F56C6` | `#16193C` | fundo do botão sólido (`.b.solid`/`.hp-solid`) |
 | `--cta-solid-h` | `#2A76AD` | `#2A2E5C` | hover do sólido |
 | `--cta-ink` | `#fff` | `#fff` | texto sobre o CTA |
 
-> **Regra:** os botões fill/solid consomem **`--cta-*`**, nunca `--roxo2`/`--roxo-bright` direto. Trocar o tom do CTA é trocar só estes tokens (não toca na cor de marca). A marca roxa segue **inalterada**; `--roxo2 #7E63C9` continua sendo a primária para seleção (linha/dia selecionado etc.).
+> **Regra:** os botões fill/solid consomem **`--cta-*`**, nunca `--roxo2`/`--roxo-bright` direto. Trocar o tom do CTA é trocar só estes tokens (não toca na cor de marca). A marca roxa segue **inalterada**; `--roxo2 #7E63C9` continua sendo a primária da marca. O dia selecionado do calendário usa `--cta-solid`/`--cta-ink` (ver CHANGELOG 1.0.3).
 | `--lilas` | `#A18FE3` | `#5B44AD` | **accent interativo** (links, ativo, foco) |
 | `--lilas-soft` | `#BFB3EE` | `#4A3A92` | accent hover |
 | `--logo` | `#F5FAFC` | `#16193C` | cor do lockup SVG (cores do arquivo do logo) |
@@ -201,7 +203,7 @@ Todas as transições/animações viram instantâneas. (Ao auditar contraste por
 - IDs de logo: `logo-hor`, `logo-hor-mono`, `logo-icon`, `logo-icon-mono` (lockups oficiais, `fill=currentColor`, cor via `--logo`). IDs de UI: `i-arrow/i-check/i-sun/i-moon/i-copy/i-download` + ~60 `ph-*`.
 
 ### 3.6 Gradientes
-Montados só com cores do brand. Tipos: linear primário (`roxo2→roxo`), espectral (roxo→lilás→rosa→pêssego), **malha** (multi radial-gradient sobre `--bg`) e **spot** (radial topo). Sem cônico, sem blob, sem halo. Ver seção 03 do showcase.
+Montados só com cores do brand. Tipos: linear primário (`roxo2→roxo`), espectro (do azul céu ao coral, como o medidor do logo), **malha** (multi radial-gradient sobre `--bg`) e **spot** (radial topo). Sem cônico, sem blob, sem halo. Ver seção 03 do showcase.
 
 ---
 
@@ -209,7 +211,7 @@ Montados só com cores do brand. Tipos: linear primário (`roxo2→roxo`), espec
 
 Classe base **`.b`** (drop-in: `.hp-btn`). Composição: `.b` + tamanho (`.sm`/`.md`/`.lg`) + variante (`.fill`/`.solid`/`.outline`/`.ghost`/`.gold`/`.gold-o`). Ícone interno: `.ico` (drop-in `.hp-ico`).
 
-> **CTA (fill/solid) lê `--cta-*`, não `--roxo2`/`--roxo-bright` direto.** `.b.fill`/`.hp-fill` usa `--cta-grad` + `--cta-ink`; `.b.solid`/`.hp-solid` usa `--cta-solid` (hover `--cta-solid-h`). O `--cta` é **theme-aware**: no escuro é o violeta intenso (`#6A50C4`) para o botão passar contraste de componente (≥3:1 vs. fundo, WCAG 1.4.11); no claro fica `#7E63C9` (inalterado). Ver "CTA — token theme-aware" na seção 2.3.
+> **CTA (fill/solid) lê `--cta-*`, não `--roxo2`/`--roxo-bright` direto.** `.b.fill`/`.hp-fill` usa `--cta-grad` + `--cta-ink`; `.b.solid`/`.hp-solid` usa `--cta-solid` (hover `--cta-solid-h`). O `--cta` é **theme-aware**: no escuro é o violeta `#6F56C6` (branco 5.5:1; botão 3.5:1 vs. fundo, e a WCAG 1.4.11 pede ≥3:1); no claro é o navy `#16193C`. Ver "CTA: token theme-aware" na seção 2.3.
 
 ```css
 .b{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:inherit;
@@ -352,25 +354,25 @@ Accordion usa `<details>/<summary>` nativo (estado open gratuito + acessível); 
 
 ### 5.7 Avançados (camada de produto)
 
-**Data table (`.dtbl`)** — em wrapper `.dtbl-x{overflow-x:auto}`:
+**Data table (`.dtbl`)**, em wrapper `.dtbl-x{overflow-x:auto}`:
 - Cabeçalho sticky: `thead th{position:sticky;top:0;background:var(--card2)}`, uppercase 10.5px.
 - Ordenação: botão `.ths` no `th`; estado em `aria-sort="ascending|descending"`; a seta SVG gira (`[aria-sort="ascending"] .ths svg{transform:rotate(180deg);opacity:1}`).
 - Linha: `tbody tr{transition:background .2s}`; `tr:hover{background:var(--card2)}`; `tr.is-sel{background:var(--row-sel)}` (tint do accent).
 - Seleção: `.check` na `.col-ck`; densidade `.dtbl.compact` (linha 46→38px via `--row-h`/`--row-h-compact`).
 - Status: `.st` + `.st i` (ponto) com `.ok`(success)/`.warn`(warning)/`.off`(mut).
 
-**Command palette (`.cmdk`)** — overlay com `.cmdk-scrim`:
+**Command palette (`.cmdk`)**, overlay com `.cmdk-scrim`:
 - `.cmdk{width:min(520px,100%);box-shadow:var(--elev-modal)}`, input `.cmdk-in`, lista `.cmdk-list{max-height:262px;overflow-y:auto}`, grupos `.cmdk-grp` (uppercase).
 - Item `.cmdk-item`; `:hover{background:var(--card2)}`; ativo `.is-active{background:var(--row-sel)}` + ícone em `--lilas` + `.kbd` (↵).
 - `.kbd`: tecla com `border-bottom-width:2px` (relevo), `tabular-nums`.
 
-**App shell (`.appshell`)** — `grid-template-columns:var(--side-w) 1fr` (248px + conteúdo), `min-width:660px`:
+**App shell (`.appshell`)**, `grid-template-columns:var(--side-w) 1fr` (248px + conteúdo), `min-width:660px`:
 - Sidebar `.appside` (brand + `.navgroup-lbl` + itens + `.side-foot`); topbar `.appbar`.
 - Item `.navitem`; `:hover{background:var(--card2);color:var(--txt)}`; ativo `.is-active{background:var(--row-sel)}` + **faixa accent à esquerda** via `::before{width:3px;background:var(--lilas)}` + ícone em `--lilas`.
 
-**Date picker (`.cal`)** — calendário `width:296px`, grid `.cal-grid{grid-template-columns:repeat(7,1fr)}`:
+**Date picker (`.cal`)**, calendário `width:296px`, grid `.cal-grid{grid-template-columns:repeat(7,1fr)}`:
 - Dia `.cal-day{height:var(--cal-cell)}`; `:hover{background:var(--card2)}`.
-- Estados: `.is-out{opacity:.5}` · `.is-today{box-shadow:inset 0 0 0 1.5px var(--lilas)}` · `.is-range{background:var(--row-sel)}` · `.is-sel{background:var(--roxo2);color:#fff}` (tom profundo p/ o branco passar contraste).
+- Estados: `.is-out{opacity:.5}` · `.is-today{box-shadow:inset 0 0 0 1.5px var(--lilas)}` · `.is-range{background:var(--row-sel)}` · `.is-sel{background:var(--cta-solid);color:var(--cta-ink)}` (CTA de cada tema, ver CHANGELOG 1.0.3).
 
 ---
 
@@ -403,9 +405,9 @@ Tudo vanilla, sem dependências. Scripts no fim do `<body>`.
 ## 8. Acessibilidade ⭐
 
 - **Contraste WCAG 2.1 AA em 2 níveis**, medido nos 2 temas:
-  - **Nível 1 — texto:** texto normal ≥4.5:1; texto grande ≥3:1 (WCAG 1.4.3).
-  - **Nível 2 — componente:** o próprio botão/controle (fundo do componente) vs. o fundo da página ≥3:1 (WCAG 1.4.11, *Non-text Contrast*).
-  - O **CTA do tema escuro usa o violeta intenso** `#6A50C4` (medido: branco 5.9:1, botão vs fundo 3.3:1); o claro usa o navy `#16193C` da marca (branco 17:1).
+  - **Nível 1, texto:** texto normal ≥4.5:1; texto grande ≥3:1 (WCAG 1.4.3).
+  - **Nível 2, componente:** o próprio botão/controle (fundo do componente) vs. o fundo da página ≥3:1 (WCAG 1.4.11, *Non-text Contrast*).
+  - O **CTA do tema escuro usa o violeta intenso** `#6F56C6` (medido: branco 5.5:1, botão vs fundo 3.5:1); o claro usa o navy `#16193C` da marca (branco 17:1).
 
   Verificado por sweep automatizado (compondo fundos semi-transparentes sobre o pai e desativando transições antes de medir). 0 falhas em dark e light, nos dois níveis.
 - **Foco visível:** outline 2px `--lilas` + `box-shadow:var(--focus)` (anel 3px); guard para `forced-colors` (`Highlight`).
@@ -440,17 +442,17 @@ Tudo vanilla, sem dependências. Scripts no fim do `<body>`.
 ```
 Dark é o padrão; `data-theme="light"` no `<html>` força claro; sem isso segue `prefers-color-scheme`. Para toggle sem flash, replique o IIFE de init no `<head>`.
 
-**B) Tokens (qualquer stack)** — importe `harmonyca-performance-design-tokens.json` e gere CSS vars / JS / Tailwind theme. Componentes consomem token, nunca hex.
+**B) Tokens (qualquer stack):** importe `harmonyca-performance-design-tokens.json` e gere CSS vars / JS / Tailwind theme. Componentes consomem token, nunca hex.
 
-**C) Framer** — crie **Color Styles** (cada um com valor Claro e Escuro), **Text Styles** por breakpoint (L/M/S = 1200/810/390), use `Button.tsx` como Code Component e ícones Phosphor Thin. O site publicado segue `prefers-color-scheme`.
+**C) Framer:** crie **Color Styles** (cada um com valor Claro e Escuro), **Text Styles** por breakpoint (L/M/S = 1200/810/390), use `Button.tsx` como Code Component e ícones Phosphor Thin. O site publicado segue `prefers-color-scheme`.
 
 ---
 
 ## 11. Deploy / infra
 
-- **Repos:** `Eddie-FacialAcademy/harmonyca-performance-design-system` (irmão: `corporal-class-design-system`).
-- **Hospedagem:** GitHub Pages, servindo o `index.html` self-contained da raiz. **Sem build/CI** — `git push` na `main` publica.
-- **Cache:** Pages (Fastly) tem `Cache-Control:max-age=600`; após push, propaga em ~1–3 min. No navegador, use hard refresh (Ctrl+Shift+R) ou query `?v=`.
+- **Repos:** `Eddie-FacialAcademy/harmonyca-performance-design-system`.
+- **Hospedagem:** GitHub Pages, servindo o `index.html` self-contained da raiz. **Sem build/CI**: `git push` na `main` publica.
+- **Cache:** Pages (Fastly) tem `Cache-Control:max-age=600`; após push, propaga em ~1 a 3 min. No navegador, use hard refresh (Ctrl+Shift+R) ou query `?v=`.
 - **Git:** credencial via Git Credential Manager (sem token em arquivo); `.git` fora do OneDrive (`AppData\Local\gitdirs\`); EOL travado em LF (`.gitattributes`); `desktop.ini` ignorado.
 - **URL ao vivo:** https://eddie-facialacademy.github.io/harmonyca-performance-design-system/
 
@@ -480,11 +482,11 @@ Mesma arquitetura, JS, componentes, escalas e semânticas. Mudam:
 | Token primário | `--roxo2 #7E63C9` | `--bordo2 #D6515C` |
 | Accent interativo | `--lilas` (#A18FE3 dark / #5B44AD light) | `--coral` (#E88A92 dark / #C2434E light) |
 | `--info` (dark/light) | `#A18FE3` / `#5E4A8C` (roxo) | `#74C0D8` / `#2A7286` (**teal**, p/ não confundir com o coral/vermelho) |
-| Foco (`--focus-ring` dark/light) | `#A18FE3` / `#5B44AD` | `rgba(232,138,146,.55)` |
+| Foco (`--focus-ring` dark/light) | `#A18FE3` / `#5B44AD` | `#E88A92` / `#C2434E` |
 | Sombra (matiz) | `rgba(126,99,201,…)` | `rgba(214,81,92,…)` |
-| Logo no nav | 24px | 30px (lockup com mais respiro) |
+| Logo no nav | 42px (34px no mobile) | 30px |
 
-**Cores institucionais da Corporal**: `--brand-bordo #D6515C` · `--brand-coral #E88A92` · `--brand-amarelo #FFE4A4` · `--brand-vermelho #FFB1BD` · `--brand-amarelado #FFCA9B` · branco · preto. Superfícies/texto no tema são tingidos no bordô (ex.: dark `--bg #0E0708`, `--card #241619`, `--txt #FAF7F8`; light `--bg #FAFAFA`, `--card #FEF8F8`, `--txt #2A1517`). Semânticas success/warning/danger são **iguais** nas duas marcas.
+**Cores institucionais da Corporal**: `--brand-bordo #D6515C` · `--brand-coral #E88A92` · `--brand-amarelo #FFE4A4` · `--brand-vermelho #FFB1BD` · `--brand-amarelado #FFCA9B` · branco · preto. Superfícies/texto no tema são tingidos no bordô (ex.: dark `--bg #0E0708`, `--card #241619`, `--txt #FAF7F8`; light `--bg #FAFAFA`, `--card #FCFAF8`, `--txt #2A1517`). Semânticas success/warning/danger são **iguais** nas duas marcas.
 
 > Trocar de marca = trocar a linha de import (`harmonyca-performance-…`↔`corporal-…`) e o prefixo de classe. O resto do código é idêntico.
 
